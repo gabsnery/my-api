@@ -33,4 +33,4 @@ const mock_items: IItem[] = [
     }
 ];
 
-export default items;
+export default mock_items;
