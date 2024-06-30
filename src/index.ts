@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import fs from 'fs';
 import path from 'path';
 import itemsRouter from './item/item.controller'
+import cors from 'cors';
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -11,6 +12,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(morgan('combined', { stream: accessLogStream }))
+app.use(cors());
 
 // Middlewares
 app.use(express.json());
